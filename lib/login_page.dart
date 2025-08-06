@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:latihan1_11pplg2/widget/txtv_cstm.dart';
 import 'register_page.dart';
 
 class LoginPage extends StatefulWidget {
@@ -36,12 +37,15 @@ class _LoginPageState extends State<LoginPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              'Welcome to the Login Page',
-              style: TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-                color: Colors.blue,
+            Container(
+              margin: EdgeInsets.symmetric(vertical: 4),
+              child: CustomText(
+                text: "Welcome to the Login Page",
+                style: TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.blue,
+                ),
               ),
             ),
             SizedBox(height: 8),

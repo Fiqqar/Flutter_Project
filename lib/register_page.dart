@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:latihan1_11pplg2/widget/btn_submit.dart';
+import 'package:latihan1_11pplg2/widget/txtv_cstm.dart';
 import 'widget/txt_email.dart';
 import 'widget/txt_password.dart';
 import 'widget/txt_user.dart';
@@ -32,8 +34,8 @@ class _RegisterPageState extends State<RegisterPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              'Register Page',
+            CustomText(
+              text: "Register Page",
               style: TextStyle(
                 fontSize: 24,
                 fontWeight: FontWeight.bold,
@@ -85,19 +87,40 @@ class _RegisterPageState extends State<RegisterPage> {
             ),
             Container(
               margin: const EdgeInsets.symmetric(vertical: 16),
-              child: ElevatedButton(
-                onPressed: () {
-                  Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => LoginPage(successMessage: 'Registration Successful!'),
-                    ),
-                  );
-                },
-                style: ElevatedButton.styleFrom(
+              child: SubmitButton(
+                label: "Register",
+                labelColor: Colors.blue,
+                btnStyle: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.white,
+                  side: BorderSide(color: Colors.blue, width: 2),
                   minimumSize: Size(double.infinity, 50),
                 ),
-                child: Text('Register', style: TextStyle(color: Colors.blue)),
+                onPressed: () {
+                  String username = usernameController.text;
+                  String email = emailController.text;
+                  String password = passwordController.text;
+                  String birthDate = dateController.text;
+
+                  if (username.isEmpty ||
+                      email.isEmpty ||
+                      password.isEmpty ||
+                      birthDate.isEmpty ||
+                      jenisKelamin.isEmpty) {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(content: Text('Please fill all fields')),
+                    );
+                    return;
+                  } else {
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => LoginPage(
+                          successMessage: 'Registration Successful!',
+                        ),
+                      ),
+                    );
+                  }
+                },
               ),
             ),
           ],
