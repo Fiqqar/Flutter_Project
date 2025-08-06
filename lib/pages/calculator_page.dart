@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:latihan1_11pplg2/controllers/calculator_controller.dart';
 import 'package:latihan1_11pplg2/widget/btn_submit.dart';
 import 'package:latihan1_11pplg2/widget/txt_user.dart';
@@ -35,12 +34,14 @@ class CalculatorPage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             TxtUser(
+              isNumber: true,
               controller: calculatorController.txtAngka1,
               labelText: "Angka 1",
               hintText: "Input angka 1",
             ),
             const Padding(padding: EdgeInsets.only(top: 16)),
             TxtUser(
+              isNumber: true,
               controller: calculatorController.txtAngka2,
               labelText: "Angka 2",
               hintText: "Input angka 2",
@@ -125,6 +126,14 @@ class CalculatorPage extends StatelessWidget {
               onPressed: () {
                 calculatorController.txtAngka1.clear();
                 calculatorController.txtAngka2.clear();
+                calculatorController.txtHasil.value = "";
+                Get.snackbar(
+                  "Info",
+                  "Fields cleared",
+                  snackPosition: SnackPosition.BOTTOM,
+                  backgroundColor: Colors.white,
+                  colorText: Colors.black,
+                );
               },
             ),
           ],

@@ -45,6 +45,7 @@ class _RegisterPageState extends State<RegisterPage> {
             Container(
               margin: const EdgeInsets.symmetric(vertical: 8),
               child: TxtUser(
+                isNumber: false,
                 controller: usernameController,
                 labelText: 'Username',
                 hintText: 'Enter your username',
