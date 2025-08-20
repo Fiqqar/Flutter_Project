@@ -42,4 +42,10 @@ class CalculatorController extends GetxController{
 
     txtHasil.value = hasil.toString();
   }
+
+  void clear() {
+    txtAngka1.clear();
+    txtAngka2.clear();
+    txtHasil.value = "";
+  }
 }

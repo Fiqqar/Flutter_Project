@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:latihan1_11pplg2/controllers/calculator_controller.dart';
-import 'package:latihan1_11pplg2/routes/routes.dart';
 import 'package:latihan1_11pplg2/widget/btn_submit.dart';
 import 'package:latihan1_11pplg2/widget/txt_user.dart';
 
@@ -125,7 +124,9 @@ class CalculatorPage extends StatelessWidget {
               label: "Clear",
               labelColor: Colors.red,
               onPressed: () {
-                Get.toNamed(AppRoutes.footballPage);
+                calculatorController.txtAngka1.clear();
+                calculatorController.txtAngka2.clear();
+                calculatorController.txtHasil.value = "";
               },
             ),
           ],
