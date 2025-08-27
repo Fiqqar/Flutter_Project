@@ -7,13 +7,10 @@ import 'package:latihan1_11pplg2/widget/txt_user.dart';
 class EditFootballPlayer extends StatelessWidget {
   EditFootballPlayer({super.key});
 
-  final editController = Get.put(FootballEditController());
+  final FootballEditController editController = Get.put(FootballEditController());
 
   @override
   Widget build(BuildContext context) {
-    final args = Get.arguments as Map<String, dynamic>;
-    final int index = args['index'];
-    editController.load(index);
     return Scaffold(
       appBar: AppBar(title: Text("Edit Football Player")),
       body: Container(

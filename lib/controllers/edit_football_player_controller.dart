@@ -12,9 +12,15 @@ class FootballEditController extends GetxController {
 
   late int index;
 
-  void load(int idx) {
-    index = idx;
-    final player = footballController.players[idx];
+  @override
+  void onInit() {
+    super.onInit();
+    load();
+  }
+
+  void load() {
+    index = Get.arguments as int;
+    final player = footballController.players[index];
     nameController.text = player.name;
     positionController.text = player.position;
     playerNumberController.text = player.playerNumber.toString();
@@ -29,5 +35,4 @@ class FootballEditController extends GetxController {
     );
     footballController.players[index] = updatedPlayer;
   }
-
 }

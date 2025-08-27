@@ -11,14 +11,15 @@ class FootballPlayer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Football Players"),),
+      appBar: AppBar(title: Text("Football Players")),
       body: Container(
         margin: EdgeInsets.all(10),
-        child: Obx(() => ListView.builder(
-          itemCount: footballPlayerController.players.length,
-          itemBuilder: (context, index) {
-            final player = footballPlayerController.players[index];
-            return Card(
+        child: Obx(
+          () => ListView.builder(
+            itemCount: footballPlayerController.players.length,
+            itemBuilder: (context, index) {
+              final player = footballPlayerController.players[index];
+              return Card(
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(12),
                 ),
@@ -32,12 +33,13 @@ class FootballPlayer extends StatelessWidget {
                   subtitle: Text(player.position),
                   trailing: Text("${player.playerNumber}"),
                   onTap: () {
-                    Get.toNamed(AppRoutes.editFootballPage, arguments: {'index': index});
+                    Get.toNamed(AppRoutes.editFootballPage, arguments: index);
                   },
                 ),
-            );
-          }
-        )),
+              );
+            },
+          ),
+        ),
       ),
     );
   }

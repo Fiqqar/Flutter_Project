@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
-import 'package:latihan1_11pplg2/pages/bottom_nav_page.dart';
+import 'package:latihan1_11pplg2/pages/main_menu_page.dart';
 import 'package:latihan1_11pplg2/routes/pages.dart';
-import 'package:latihan1_11pplg2/routes/routes.dart';
 
 void main() {
   runApp(const MyApp());
@@ -21,7 +20,7 @@ class MyApp extends StatelessWidget {
       ),
       initialRoute: "/",
       getPages: AppPages.pages,
-      home: BottomNavPage(),
+      home: MainMenuPage(),
     );
   }
 }
