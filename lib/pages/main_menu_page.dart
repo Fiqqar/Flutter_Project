@@ -9,41 +9,39 @@ class MainMenuPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(backgroundColor: Colors.blueAccent),
-      drawer: Drawer(
-        child: ListView(
-          padding: EdgeInsets.zero,
-          children: [
-            const UserAccountsDrawerHeader(
-              decoration: BoxDecoration(color: Colors.blueAccent),
-              accountName: Text(
-                "Zulfiqar",
-                style: TextStyle(fontWeight: FontWeight.bold),
+    return Obx(
+      () => Scaffold(
+        appBar: AppBar(backgroundColor: Colors.blueAccent),
+        drawer: Drawer(
+          child: ListView(
+            padding: EdgeInsets.zero,
+            children: [
+              const UserAccountsDrawerHeader(
+                decoration: BoxDecoration(color: Colors.blueAccent),
+                accountName: Text(
+                  "Zulfiqar",
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
+                accountEmail: Text("fiqarsilmy@gmail.com"),
+                currentAccountPicture: CircleAvatar(
+                  backgroundImage: AssetImage("images/profile.jpeg"),
+                ),
               ),
-              accountEmail: Text("fiqarsilmy@gmail.com"),
-              currentAccountPicture: CircleAvatar(
-                backgroundImage: AssetImage("images/profile.jpeg"),
-              ),
-            ),
-            Obx(
-              () => Column(
-                children: controller.menuItems.asMap().entries.map((index) {
-                  return ListTile(
-                    leading: Icon(index.value["icon"]),
-                    title: Text(index.value["title"]),
-                    onTap: () {
-                      controller.currIndex.value = index.key;
-                      Get.back();
-                    },
-                  );
-                }).toList(),
-              ),
-            ),
-          ],
+              ...controller.menuItems.asMap().entries.map((idx) {
+                return ListTile(
+                  leading: Icon(idx.value["icon"]),
+                  title: Text(idx.value["title"]),
+                  onTap: () {
+                    controller.currIndex.value = idx.key;
+                    Get.back();
+                  },
+                );
+              }),
+            ],
+          ),
         ),
+        body: controller.pages[controller.currIndex.value],
       ),
-      body: Obx(() => controller.pages[controller.currIndex.value]),
     );
   }
 }
