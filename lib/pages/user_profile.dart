@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:latihan1_11pplg2/controllers/profile_controller.dart';
 
 class UserProfile extends StatelessWidget {
-  const UserProfile({super.key});
+  UserProfile({super.key});
+
+  final controller = Get.find<ProfileController>();
 
   @override
   Widget build(BuildContext context) {
@@ -89,7 +92,7 @@ class UserProfile extends StatelessWidget {
                 borderRadius: BorderRadius.circular(12),
               ),
             ),
-            onPressed: () => Get.snackbar("Logout", "Logout Successful"),
+            onPressed: () => controller.logout(),
             icon: const Icon(Icons.logout),
             label: const Text("Logout", style: TextStyle(color: Colors.black),),
           ),

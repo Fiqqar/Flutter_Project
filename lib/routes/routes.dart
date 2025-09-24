@@ -4,4 +4,6 @@ class AppRoutes {
   static const String editFootballPage = "/editFootball";
   static const String userProfile = "/userProfile";
   static const String mainMenu = "/mainMenu";
+  static const String loginPage = "/login";
+  static const String splashPage = "/splashscreen";
 }

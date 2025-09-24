@@ -12,7 +12,7 @@ class CalculatorController extends GetxController{
     int hasil = angka1 + angka2;
 
     txtHasil.value = hasil.toString();
-    
+
   }
 
   void subtract() {

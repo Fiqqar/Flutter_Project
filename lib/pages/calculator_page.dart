@@ -7,9 +7,12 @@ import 'package:latihan1_11pplg2/widget/txt_user.dart';
 class CalculatorPage extends StatelessWidget {
   CalculatorPage({super.key});
 
-  final CalculatorController calculatorController = Get.put(
-    CalculatorController(),
-  );
+  // final CalculatorController calculatorController = Get.put(
+  //   CalculatorController(),
+  // );
+
+  // using binding instead of using put
+  final calculatorController = Get.find<CalculatorController>();
 
   @override
   Widget build(BuildContext context) {

@@ -15,10 +15,6 @@ class FootballEditController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    load();
-  }
-
-  void load() {
     index = Get.arguments as int;
     final player = footballController.players[index];
     nameController.text = player.name;
