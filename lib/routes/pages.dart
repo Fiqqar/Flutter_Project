@@ -5,7 +5,6 @@ import 'package:latihan1_11pplg2/bindings/main_menu_binding.dart';
 import 'package:latihan1_11pplg2/bindings/splash_binding.dart';
 import 'package:latihan1_11pplg2/pages/calculator_page.dart';
 import 'package:latihan1_11pplg2/pages/contact_page.dart';
-import 'package:latihan1_11pplg2/pages/edit_contact_page.dart';
 import 'package:latihan1_11pplg2/pages/edit_football_player.dart';
 import 'package:latihan1_11pplg2/pages/football_player.dart';
 import 'package:latihan1_11pplg2/pages/login_page.dart';
@@ -25,6 +24,5 @@ class AppPages {
     GetPage(name: AppRoutes.loginPage, page: () => LoginPage(), binding: LoginBinding()),
     GetPage(name: AppRoutes.splashPage, page: () => SplashScreenPage(), binding: SplashBinding()),
     GetPage(name: AppRoutes.contactPage, page: () => ContactPage(), binding: ContactBinding()),
-    GetPage(name: AppRoutes.editContactPage, page:() => EditContactPage(), binding: ContactBinding())
   ];
 }

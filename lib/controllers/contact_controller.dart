@@ -8,8 +8,6 @@ class ContactController extends GetxController {
   final names = <Map<String, dynamic>>[].obs;
   final _dbHelper = DBHelper();
 
-  int? id;
-
   @override
   void onInit() {
     super.onInit();
@@ -29,18 +27,9 @@ class ContactController extends GetxController {
     fetchNames();
   }
 
-  Future<void> updateName(String newName) async {
-    if (id == null) {
-      print("id nya null");
-      return;
-    }
-    if (newName.isEmpty) {
-      print("name nya null");
-      return;
-    }
-    await _dbHelper.updateName(id!, newName);
+  Future<void> updateName(int id, String newName) async {
+    await _dbHelper.updateName(id, newName);
     editNameController.clear();
-    id = null;
     fetchNames();
   }
 
@@ -49,11 +38,34 @@ class ContactController extends GetxController {
     fetchNames();
   }
 
-  void loadContactForEdit(int id) {
-    final contact = names.firstWhere((e) => e['id'] == id);
-    id = contact['id'];
-    editNameController.text = contact['name'];
-  }
+  Future<void> showEditDialog(int id, String oldName) async {
+  editNameController.text = oldName;
+
+  Get.defaultDialog(
+    title: "Edit Contact",
+    content: TextField(
+      controller: editNameController,
+      decoration: InputDecoration(
+        hintText: "Enter new name",
+        border: OutlineInputBorder(),
+      ),
+    ),
+    textConfirm: "Update",
+    textCancel: "Cancel",
+    confirmTextColor: Colors.white,
+    onConfirm: () async {
+      final newName = editNameController.text.trim();
+      if (newName.isNotEmpty) {
+        await updateName(id, newName);
+      }
+      Get.back();
+    },
+    onCancel: () {
+      editNameController.clear();
+    },
+  );
+}
+
 
   @override
   void onClose() {

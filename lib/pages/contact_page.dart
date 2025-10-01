@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:latihan1_11pplg2/controllers/contact_controller.dart';
-import 'package:latihan1_11pplg2/routes/routes.dart';
 
 class ContactPage extends StatelessWidget {
   ContactPage({super.key});
@@ -46,7 +45,7 @@ class ContactPage extends StatelessWidget {
                     return ListTile(
                       hoverColor: Colors.grey,
                       leading: IconButton(onPressed: () {
-                        Get.toNamed(AppRoutes.editContactPage, arguments: item['id']);
+                        controller.showEditDialog(item['id'], item['name']);
                       }, icon: Icon(Icons.edit)),
                       title: Text(item['name']),
                       trailing: IconButton(onPressed: () {
