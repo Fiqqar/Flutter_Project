@@ -1,7 +1,14 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:latihan1_11pplg2/models/player_model.dart';
 
 class FootballPlayerController extends GetxController {
+  var isMobile = true.obs;
+
+  void updateLayout(BoxConstraints constraints) {
+    isMobile.value = constraints.maxWidth < 600;
+  }
+
   var players = <Player>[
     Player(
       profileImage:"images/gonzalo.jpg",
@@ -34,4 +41,6 @@ class FootballPlayerController extends GetxController {
       playerNumber: 67,
     ),
   ].obs;
+
+
 }

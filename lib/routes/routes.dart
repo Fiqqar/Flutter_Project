@@ -8,4 +8,6 @@ class AppRoutes {
   static const String splashPage = "/splashscreen";
   static const String contactPage = "/contactpage";
   static const String editContactPage = "/editcontactpage";
+  static const String examplePage = "/examplepage";
+  static const String footballResponsive = "/footballresp";
 }
