@@ -1,16 +1,22 @@
 import 'package:get/get.dart';
 import 'package:latihan1_11pplg2/bindings/contact_binding.dart';
 import 'package:latihan1_11pplg2/bindings/example_binding.dart';
+import 'package:latihan1_11pplg2/bindings/google_login_binding.dart';
+import 'package:latihan1_11pplg2/bindings/login_api_binding.dart';
 import 'package:latihan1_11pplg2/bindings/login_binding.dart';
 import 'package:latihan1_11pplg2/bindings/main_menu_binding.dart';
+import 'package:latihan1_11pplg2/bindings/premier_league_binding.dart';
 import 'package:latihan1_11pplg2/bindings/splash_binding.dart';
 import 'package:latihan1_11pplg2/pages/calculator_page.dart';
 import 'package:latihan1_11pplg2/pages/contact_page.dart';
 import 'package:latihan1_11pplg2/pages/edit_football_player.dart';
 import 'package:latihan1_11pplg2/pages/example_transform_page.dart';
 import 'package:latihan1_11pplg2/pages/football_player.dart';
+import 'package:latihan1_11pplg2/pages/google_login_page.dart';
+import 'package:latihan1_11pplg2/pages/login_api_page.dart';
 import 'package:latihan1_11pplg2/pages/login_page.dart';
 import 'package:latihan1_11pplg2/pages/main_menu_page.dart';
+import 'package:latihan1_11pplg2/pages/premier_league_page.dart';
 import 'package:latihan1_11pplg2/pages/responsive/football_page.dart';
 import 'package:latihan1_11pplg2/pages/splash_screen_page.dart';
 import 'package:latihan1_11pplg2/pages/user_profile.dart';
@@ -29,5 +35,8 @@ class AppPages {
     GetPage(name: AppRoutes.contactPage, page: () => ContactPage(), binding: ContactBinding()),
     GetPage(name: AppRoutes.examplePage, page: () => ExampleTransformPage(), binding: ExampleBinding()),
     GetPage(name: AppRoutes.footballResponsive, page: () => FootballPage()),
+    GetPage(name: AppRoutes.loginApiPage, page: () => LoginApiPage(), binding: LoginApiBinding()),
+    GetPage(name: AppRoutes.premierLeaguePage, page: () => PremierLeaguePage(), binding: PremierLeagueBinding()),
+    GetPage(name: AppRoutes.googleLoginPage, page: () => GoogleLoginPage(), binding: GoogleLoginBinding()),
   ];
 }

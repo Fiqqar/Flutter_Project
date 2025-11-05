@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:latihan1_11pplg2/pages/calculator_page.dart';
 import 'package:latihan1_11pplg2/pages/football_player.dart';
+import 'package:latihan1_11pplg2/pages/premier_league_page.dart';
 import 'package:latihan1_11pplg2/pages/user_profile.dart';
 
 class MainMenuController extends GetxController {
@@ -9,7 +10,7 @@ class MainMenuController extends GetxController {
 
   final List<Widget> pages = [
     CalculatorPage(),
-    FootballPlayer(),
+    PremierLeaguePage(),
     UserProfile(),
   ];
 

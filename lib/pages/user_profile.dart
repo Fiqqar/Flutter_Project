@@ -10,31 +10,34 @@ class UserProfile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("User Profile"),
-        centerTitle: true,
-      ),
+      appBar: AppBar(title: const Text("User Profile"), centerTitle: true),
       body: ListView(
         padding: const EdgeInsets.all(20),
         children: [
           Column(
             children: [
-              const CircleAvatar(
+              CircleAvatar(
                 radius: 50,
-                backgroundImage: AssetImage("images/profile.jpeg"),
+                backgroundImage: controller.photoUrl.value.isNotEmpty
+                    ? NetworkImage(controller.photoUrl.value)
+                    : AssetImage("images/profile.jpeg") as ImageProvider,
               ),
-              const Padding(
+              Padding(
                 padding: EdgeInsets.only(top: 16),
-                child: Text(
-                  "Zulfiqar Silmy Setiawan",
-                  style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+                child: Obx(
+                  () => Text(
+                    controller.name.value.isNotEmpty ? controller.name.value : "Zulfiqar Silmy Setiawan",
+                    style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+                  ),
                 ),
               ),
-              const Padding(
+              Padding(
                 padding: EdgeInsets.only(top: 4),
-                child: Text(
-                  "fiqarsilmy@gmail.com",
-                  style: TextStyle(color: Colors.grey),
+                child: Obx(
+                  () => Text(
+                    controller.email.value.isNotEmpty ? controller.email.value : "05570@smkrus.sch.id",
+                    style: TextStyle(color: Colors.grey),
+                  ),
                 ),
               ),
             ],
@@ -94,7 +97,7 @@ class UserProfile extends StatelessWidget {
             ),
             onPressed: () => controller.logout(),
             icon: const Icon(Icons.logout),
-            label: const Text("Logout", style: TextStyle(color: Colors.black),),
+            label: const Text("Logout", style: TextStyle(color: Colors.black)),
           ),
         ],
       ),

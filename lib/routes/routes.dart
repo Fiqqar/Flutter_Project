@@ -10,4 +10,7 @@ class AppRoutes {
   static const String editContactPage = "/editcontactpage";
   static const String examplePage = "/examplepage";
   static const String footballResponsive = "/footballresp";
+  static const String loginApiPage = "/loginapi";
+  static const String premierLeaguePage = "/premierleague";
+  static const String googleLoginPage = "/googlelogin";
 }

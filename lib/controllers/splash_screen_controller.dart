@@ -9,15 +9,15 @@ class SplashScreenController extends GetxController {
     checkLogin();
   }
 
-
-  checkLogin() async{
+  checkLogin() async {
     final pref = await SharedPreferences.getInstance();
-    if(pref.getString('Username') != null)  {
-      await Future.delayed(Duration(seconds: 3));
+    final googleUid = pref.getString('google_uid');
+    final token = pref.getString('token');
+    await Future.delayed(Duration(seconds: 3));
+    if (googleUid != null && googleUid.isNotEmpty || token != null && token.isNotEmpty) {
       Get.offAllNamed(AppRoutes.mainMenu);
     } else {
-      await Future.delayed(Duration(seconds: 3));
-      Get.offAllNamed(AppRoutes.loginPage);
+      Get.offAllNamed(AppRoutes.googleLoginPage);
     }
   }
 }

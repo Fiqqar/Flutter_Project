@@ -11,7 +11,6 @@ class CalculatorPage extends StatelessWidget {
   //   CalculatorController(),
   // );
 
-  // using binding instead of using put
   final calculatorController = Get.find<CalculatorController>();
 
   @override
@@ -122,7 +121,7 @@ class CalculatorPage extends StatelessWidget {
                 ),
               );
             }),
-            const Padding(padding: EdgeInsets.only(top: 16)),
+            const Padding(padding: EdgeInsets.only(top: 8)),
             SubmitButton(
               label: "Clear",
               labelColor: Colors.red,

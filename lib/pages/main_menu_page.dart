@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:latihan1_11pplg2/controllers/main_menu_controller.dart';
+import 'package:latihan1_11pplg2/controllers/profile_controller.dart';
 
 class MainMenuPage extends StatelessWidget {
   MainMenuPage({super.key});
 
   final MainMenuController controller = Get.put(MainMenuController());
+  final ProfileController controller2 = Get.put(ProfileController());
 
   @override
   Widget build(BuildContext context) {
@@ -16,17 +18,32 @@ class MainMenuPage extends StatelessWidget {
           child: ListView(
             padding: EdgeInsets.zero,
             children: [
-              const UserAccountsDrawerHeader(
+              UserAccountsDrawerHeader(
                 decoration: BoxDecoration(color: Colors.blueAccent),
-                accountName: Text(
-                  "Zulfiqar",
-                  style: TextStyle(fontWeight: FontWeight.bold),
+                accountName: Obx(
+                  () => Text(
+                    controller2.name.value.isNotEmpty
+                        ? controller2.name.value
+                        : "No Name",
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
                 ),
-                accountEmail: Text("fiqarsilmy@gmail.com"),
-                currentAccountPicture: CircleAvatar(
-                  backgroundImage: AssetImage("images/profile.jpeg"),
+                accountEmail: Obx(
+                  () => Text(
+                    controller2.email.value.isNotEmpty
+                        ? controller2.email.value
+                        : "No Email",
+                  ),
+                ),
+                currentAccountPicture: Obx(
+                  () => CircleAvatar(
+                    backgroundImage: controller2.photoUrl.value.isNotEmpty
+                        ? NetworkImage(controller2.photoUrl.value)
+                        : AssetImage("images/profile.jpeg") as ImageProvider,
+                  ),
                 ),
               ),
+
               ...controller.menuItems.asMap().entries.map((idx) {
                 return ListTile(
                   leading: Icon(idx.value["icon"]),
